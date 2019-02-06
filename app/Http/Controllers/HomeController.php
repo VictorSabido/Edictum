@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        dump(\Auth::check() ? 'Logged' : 'Invitado');
         // return view('home');
         return view('b.login');
     }

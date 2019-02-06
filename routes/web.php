@@ -19,4 +19,10 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
+Route::get('/admin/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/admin/login', 'Auth\LoginController@login')->name('login');
+Route::get('/admin/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('/admin/register', 'Auth\RegisterController@register')->name('register');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
