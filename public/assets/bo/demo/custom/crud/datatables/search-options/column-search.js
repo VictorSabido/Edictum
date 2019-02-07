@@ -54,17 +54,21 @@ var DatatablesSearchOptionsColumnSearch = function() {
 					var column = this;
 					var input;
 
+					var filter = function(e) {
+						var val = $.fn.dataTable.util.escapeRegex($(this).val());
+						table.column($(this).closest('th').index()).search(val ? val : '', false, true);
+					};
+
 					switch (column.title()) {
-						case 'Record ID':
-						case 'Order ID':
-						case 'Ship City':
-						case 'Company Agent':
-							input = $(`<input type="text" class="form-control form-control-sm form-filter m-input" data-col-index="` + column.index() + `"/>`);
+						case 'RecordID':
+						case 'OrderID':
+						case 'ShipCity':
+						case 'CompanyAgent':
+							input = $(`<input type="text" class="form-control form-filter input-sm"/>`);
 							break;
 
 						case 'Country':
-							input = $(`<select class="form-control form-control-sm form-filter m-input" title="Select" data-col-index="` + column.index() + `">
-										<option value="">Select</option></select>`);
+							input = $(`<select class="form-control form-filter input-sm" title="Select"><option value="">Select</option></select>`);
 							column.data().unique().sort().each(function(d, j) {
 								$(input).append('<option value="' + d + '">' + d + '</option>');
 							});
@@ -80,8 +84,7 @@ var DatatablesSearchOptionsColumnSearch = function() {
 								6: {'title': 'Danger', 'class': ' m-badge--danger'},
 								7: {'title': 'Warning', 'class': ' m-badge--warning'},
 							};
-							input = $(`<select class="form-control form-control-sm form-filter m-input" title="Select" data-col-index="` + column.index() + `">
-										<option value="">Select</option></select>`);
+							input = $(`<select class="form-control form-filter input-sm" title="Select"><option value="">Select</option></select>`);
 							column.data().unique().sort().each(function(d, j) {
 								$(input).append('<option value="' + d + '">' + status[d].title + '</option>');
 							});
@@ -93,25 +96,22 @@ var DatatablesSearchOptionsColumnSearch = function() {
 								2: {'title': 'Retail', 'state': 'primary'},
 								3: {'title': 'Direct', 'state': 'accent'},
 							};
-							input = $(`<select class="form-control form-control-sm form-filter m-input" title="Select" data-col-index="` + column.index() + `">
-										<option value="">Select</option></select>`);
+							input = $(`<select class="form-control form-filter input-sm" title="Select"><option value="">Select</option></select>`);
 							column.data().unique().sort().each(function(d, j) {
 								$(input).append('<option value="' + d + '">' + status[d].title + '</option>');
 							});
 							break;
 
-						case 'Ship Date':
+						case 'ShipDate':
 							input = $(`
 							<div class="input-group date">
-								<input type="text" class="form-control form-control-sm m-input" readonly placeholder="From" id="m_datepicker_1"
-								 data-col-index="` + column.index() + `"/>
+								<input type="text" class="form-control m-input" readonly placeholder="From" id="m_datepicker_1"/>
 								<div class="input-group-append">
 									<span class="input-group-text"><i class="la la-calendar-o glyphicon-th"></i></span>
 								</div>
 							</div>
 							<div class="input-group date">
-								<input type="text" class="form-control form-control-sm m-input" readonly placeholder="To" id="m_datepicker_2"
-								 data-col-index="` + column.index() + `"/>
+								<input type="text" class="form-control m-input" readonly placeholder="To" id="m_datepicker_2"/>
 								<div class="input-group-append">
 									<span class="input-group-text"><i class="la la-calendar-o glyphicon-th"></i></span>
 								</div>
@@ -119,14 +119,14 @@ var DatatablesSearchOptionsColumnSearch = function() {
 							break;
 
 						case 'Actions':
-							var search = $(`<button class="btn btn-brand m-btn btn-sm m-btn--icon">
+							var search = $(`<button class="btn btn-brand m-btn m-btn--icon">
 							  <span>
 							    <i class="la la-search"></i>
 							    <span>Search</span>
 							  </span>
 							</button>`);
 
-							var reset = $(`<button class="btn btn-secondary m-btn btn-sm m-btn--icon">
+							var reset = $(`<button class="btn btn-secondary m-btn m-btn--icon">
 							  <span>
 							    <i class="la la-close"></i>
 							    <span>Reset</span>
@@ -137,29 +137,15 @@ var DatatablesSearchOptionsColumnSearch = function() {
 
 							$(search).on('click', function(e) {
 								e.preventDefault();
-								var params = {};
-								$(rowFilter).find('.m-input').each(function() {
-									var i = $(this).data('col-index');
-									if (params[i]) {
-										params[i] += '|' + $(this).val();
-									}
-									else {
-										params[i] = $(this).val();
-									}
-								});
-								$.each(params, function(i, val) {
-									// apply search params to datatable
-									table.column(i).search(val ? val : '', false, false);
-								});
+								$(rowFilter).find(':input').each(filter);
 								table.table().draw();
 							});
 
 							$(reset).on('click', function(e) {
 								e.preventDefault();
-								$(rowFilter).find('.m-input').each(function(i) {
+								$(rowFilter).find(':input').each(function() {
 									$(this).val('');
-									table.column($(this).data('col-index')).search('', false, false);
-								});
+								}).each(filter);
 								table.table().draw();
 							});
 							break;
@@ -194,7 +180,7 @@ var DatatablesSearchOptionsColumnSearch = function() {
 				},
 				{
 					targets: 5,
-					width: '150px',
+					width: '150px'
 				},
 				{
 					targets: 6,

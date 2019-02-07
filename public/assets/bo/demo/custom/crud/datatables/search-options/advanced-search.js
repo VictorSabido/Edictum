@@ -45,47 +45,6 @@ var DatatablesSearchOptionsAdvancedSearch = function() {
 				{data: 'Type'},
 				{data: 'Actions'},
 			],
-
-			initComplete: function() {
-				this.api().columns().every(function() {
-					var column = this;
-
-					switch (column.title()) {
-						case 'Country':
-							column.data().unique().sort().each(function(d, j) {
-								$('.m-input[data-col-index="2"]').append('<option value="' + d + '">' + d + '</option>');
-							});
-							break;
-
-						case 'Status':
-							var status = {
-								1: {'title': 'Pending', 'class': 'm-badge--brand'},
-								2: {'title': 'Delivered', 'class': ' m-badge--metal'},
-								3: {'title': 'Canceled', 'class': ' m-badge--primary'},
-								4: {'title': 'Success', 'class': ' m-badge--success'},
-								5: {'title': 'Info', 'class': ' m-badge--info'},
-								6: {'title': 'Danger', 'class': ' m-badge--danger'},
-								7: {'title': 'Warning', 'class': ' m-badge--warning'},
-							};
-							column.data().unique().sort().each(function(d, j) {
-								$('.m-input[data-col-index="6"]').append('<option value="' + d + '">' + status[d].title + '</option>');
-							});
-							break;
-
-						case 'Type':
-							var status = {
-								1: {'title': 'Online', 'state': 'danger'},
-								2: {'title': 'Retail', 'state': 'primary'},
-								3: {'title': 'Direct', 'state': 'accent'},
-							};
-							column.data().unique().sort().each(function(d, j) {
-								$('.m-input[data-col-index="7"]').append('<option value="' + d + '">' + status[d].title + '</option>');
-							});
-							break;
-					}
-				});
-			},
-
 			columnDefs: [
 				{
 					targets: -1,
@@ -146,49 +105,10 @@ var DatatablesSearchOptionsAdvancedSearch = function() {
 
 		var filter = function() {
 			var val = $.fn.dataTable.util.escapeRegex($(this).val());
-			table.column($(this).data('col-index')).search(val ? val : '', false, false).draw();
+			table.column($(this).data('idx')).search(val ? val : '', false, false).draw();
 		};
 
-		var asdasd = function(value, index) {
-			var val = $.fn.dataTable.util.escapeRegex(value);
-			table.column(index).search(val ? val : '', false, true);
-		};
-
-		$('#m_search').on('click', function(e) {
-			e.preventDefault();
-			var params = {};
-			$('.m-input').each(function() {
-				var i = $(this).data('col-index');
-				if (params[i]) {
-					params[i] += '|' + $(this).val();
-				}
-				else {
-					params[i] = $(this).val();
-				}
-			});
-			$.each(params, function(i, val) {
-				// apply search params to datatable
-				table.column(i).search(val ? val : '', false, false);
-			});
-			table.table().draw();
-		});
-
-		$('#m_reset').on('click', function(e) {
-			e.preventDefault();
-			$('.m-input').each(function() {
-				$(this).val('');
-				table.column($(this).data('col-index')).search('', false, false);
-			});
-			table.table().draw();
-		});
-
-		$('#m_datepicker').datepicker({
-			todayHighlight: true,
-			templates: {
-				leftArrow: '<i class="la la-angle-left"></i>',
-				rightArrow: '<i class="la la-angle-right"></i>',
-			},
-		});
+		$('#m_form_status, #m_form_type').on('change', filter).selectpicker();
 
 	};
 

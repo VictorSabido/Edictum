@@ -4,7 +4,6 @@ var amChartsChartsDemo = function() {
     //== Private functions
     var demo1 = function() {
         var chart = AmCharts.makeChart("m_amcharts_1", {
-            "rtl": mUtil.isRTL(),
             "type": "serial",
             "theme": "light",
             "dataProvider": [{
@@ -82,7 +81,6 @@ var amChartsChartsDemo = function() {
 
     var demo2 = function() {
         var chart = AmCharts.makeChart("m_amcharts_2", {
-            "rtl": mUtil.isRTL(),
             "type": "serial",
             "addClassNames": true,
             "theme": "light",

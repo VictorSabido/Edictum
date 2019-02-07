@@ -181,7 +181,7 @@ var DatatableChildRemoteDataDemo = function() {
             title: '#',
             sortable: false,
             width: 20,
-            selector: {class: 'm-checkbox--solid m-checkbox--brand'},
+            responsive: {hide: 'xl'},
           }, {
             field: 'OrderID',
             title: 'Order ID',

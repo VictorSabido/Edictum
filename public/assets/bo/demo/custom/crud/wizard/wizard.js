@@ -14,22 +14,15 @@ var WizardDemo = function () {
         });
 
         //== Validation before going to next page
-        wizard.on('beforeNext', function(wizardObj) {
+        wizard.on('beforeNext', function(wizard) {
             if (validator.form() !== true) {
-                wizardObj.stop();  // don't go to the next step
+                wizard.stop();  // don't go to the next step
             }
         })
 
         //== Change event
         wizard.on('change', function(wizard) {
-            mUtil.scrollTop();            
-        });
-
-        //== Change event
-        wizard.on('change', function(wizard) {
-            if (wizard.getStep() === 1) {
-                alert(1);
-            }           
+            mUtil.scrollTop();
         });
     }
 

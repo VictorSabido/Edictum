@@ -55,7 +55,6 @@ var amChartsStockChartsDemo = function() {
         }
 
         var chart = AmCharts.makeChart("m_amcharts_1", {
-            "rtl": mUtil.isRTL(),
             "type": "stock",
             "theme": "light",
             "dataSets": [{

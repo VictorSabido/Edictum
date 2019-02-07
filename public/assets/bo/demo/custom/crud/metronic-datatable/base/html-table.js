@@ -15,11 +15,11 @@ var DatatableHtmlTableDemo = function() {
 			},
 			columns: [
 				{
-					field: 'DepositPaid',
+					field: 'Deposit Paid',
 					type: 'number',
 				},
 				{
-					field: 'OrderDate',
+					field: 'Order Date',
 					type: 'date',
 					format: 'YYYY-MM-DD',
 				}, {

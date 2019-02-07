@@ -16,12 +16,12 @@ var DatatableHtmlTableDemo = function () {
 			},
 			columns: [
 				{
-					field: "DepositPaid",
+					field: "Deposit Paid",
 					type: "number",
 					locked: {left: "xl"}
 				},
 				{
-					field: "OrderDate",
+					field: "Order Date",
 					type: "date",
 					format: "YYYY-MM-DD",
 					locked: {left: "xl"}

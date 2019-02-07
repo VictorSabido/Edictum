@@ -11,7 +11,6 @@ var DatatablesExtensionButtons = function() {
 			<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
 
 			buttons: [
-				'print',
 				'copyHtml5',
 				'excelHtml5',
 				'csvHtml5',
@@ -63,7 +62,6 @@ var DatatablesExtensionButtons = function() {
 			responsive: true,
 			
 			buttons: [
-				'print',
 				'copyHtml5',
 				'excelHtml5',
 				'csvHtml5',
@@ -128,29 +126,24 @@ var DatatablesExtensionButtons = function() {
 			],
 		});
 
-		$('#export_print').on('click', function(e) {
+		$('#export_copy').on('click', function(e) {
 			e.preventDefault();
 			table.button(0).trigger();
 		});
 
-		$('#export_copy').on('click', function(e) {
+		$('#export_excel').on('click', function(e) {
 			e.preventDefault();
 			table.button(1).trigger();
 		});
 
-		$('#export_excel').on('click', function(e) {
+		$('#export_csv').on('click', function(e) {
 			e.preventDefault();
 			table.button(2).trigger();
 		});
 
-		$('#export_csv').on('click', function(e) {
-			e.preventDefault();
-			table.button(3).trigger();
-		});
-
 		$('#export_pdf').on('click', function(e) {
 			e.preventDefault();
-			table.button(4).trigger();
+			table.button(3).trigger();
 		});
 
 	};

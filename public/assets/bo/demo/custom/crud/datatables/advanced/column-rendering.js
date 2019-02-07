@@ -20,7 +20,7 @@ var DatatablesAdvancedColumnRendering = function() {
 							output = `
                                 <div class="m-card-user m-card-user--sm">
                                     <div class="m-card-user__pic">
-                                        <img src="https://keenthemes.com/metronic/themes/themes/metronic/dist/preview/assets/app/media/img/users/` + user_img + `" class="m--img-rounded m--marginless" alt="photo">
+                                        <img src="./assets/app/media/img/users/` + user_img + `" class="m--img-rounded m--marginless" alt="photo">
                                     </div>
                                     <div class="m-card-user__details">
                                         <span class="m-card-user__name">` + full[2] + `</span>
