@@ -61,221 +61,208 @@
         <!--end::Global Theme Styles -->
         <link rel="shortcut icon" href="{{ asset('assets/bo/demo/media/img/logo/favicon.ico')}}" />
     </head>
-    <body class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--fixed m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
-        <div class="m-grid m-grid--hor m-grid--root m-page">
-                <div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-1" id="m_login" style="background-image: url(assets/bo/app/media/img//bg/bg-1.jpg);">
-                    <div class="m-grid__item m-grid__item--fluid m-login__wrapper">
-                        <div class="m-login__container">
-                            <div class="m-login__logo">
-                                <a href="#">
-                                    <img src="{{ asset('assets/bo/app/media/img/logos/logo-1.png')}}">
-                                </a>
+<div class="m-grid m-grid--hor m-grid--root m-page">
+    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-1" id="m_login" style="background-image: url(assets/bo/app/media/img//bg/bg-1.jpg);">
+        <div class="m-grid__item m-grid__item--fluid m-login__wrapper">
+            <div class="m-login__container">
+                <div class="m-login__logo">
+                    <a href="#">
+                        <img src="{{ asset('assets/bo/app/media/img/logos/logo-1.png')}}">
+                    </a>
+                </div>
+                <div class="m-login__signin">
+                    <div class="m-login__head">
+                        <h3 class="m-login__title">Inicia sesión</h3>
+                    </div>
+                    <form method="POST" id="formLogin" action="{{ route('login') }}" class="m-login__form m-form">
+                        @csrf
+                        <div class="form-group m-form__group">
+                            <input id="email" type="email" class="form-control m-input" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
+                            
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-group m-form__group">
+                            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Password">
+
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="row m-login__form-sub">
+                            <div class="col m--align-left m-login__form-left">
+                                <label class="m-checkbox  m-checkbox--light">
+                                    <input type="checkbox" name="remember"> Recordar credenciales
+                                    <span></span>
+                                </label>
                             </div>
-                            <div class="m-login__signin">
-                                <div class="m-login__head">
-                                    <h3 class="m-login__title">Inicia sesión</h3>
-                                </div>
-                                <form method="POST" id="formLogin" action="{{ route('login') }}" class="m-login__form m-form">
-                                    @csrf
-                                    <div class="form-group m-form__group">
-                                        <input id="email" type="email" class="form-control m-input" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
-                                        
-                                        @if ($errors->has('email'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="form-group m-form__group">
-                                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Password">
-
-                                        @if ($errors->has('password'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="row m-login__form-sub">
-                                        <div class="col m--align-left m-login__form-left">
-                                            <label class="m-checkbox  m-checkbox--light">
-                                                <input type="checkbox" name="remember"> Recordar credenciales
-                                                <span></span>
-                                            </label>
-                                        </div>
-                                        <div class="col m--align-right m-login__form-right">
-                                            <a href="javascript:;" id="m_login_forget_password" class="m-link">Olvidé mi contraseña</a>
-                                        </div>
-                                    </div>
-                                    <div class="m-login__form-action">
-                                        <button type="submit" form="formLogin" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air  m-login__btn m-login__btn--primary">Acceder</button>
-                                    </div>
-                                </form>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    <button type="submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air  m-login__btn m-login__btn--primary">Log Out</button>
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                    </form>
-                            </div>
-                            <div class="m-login__signup">
-                                <div class="m-login__head">
-                                    <h3 class="m-login__title">Regístrate</h3>
-                                    <div class="m-login__desc">Rellena los campos para crear la cuenta:</div>
-                                </div>
-                                <form method="POST" action="{{ route('register') }}" class="m-login__form m-form">
-                                    @csrf
-                                    <div class="form-group m-form__group">
-                                        <input type="text" class="form-control m-input" name="fullname" value="{{ old('fullname') }}" placeholder="Nombre" required>
-
-                                        @if ($errors->has('name'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('name') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="form-group m-form__group">
-                                        <input type="email" class="form-control m-input" name="email" value="{{ old('email') }}" required placeholder="Email" autocomplete="off">
-
-                                        @if ($errors->has('email'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="form-group m-form__group">
-                                        <input type="password" class="form-control m-input" name="password" placeholder="Contraseña" required>
-
-                                        @if ($errors->has('password'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="form-group m-form__group">
-                                        <input type="password" class="form-control m-input m-login__form-input--last" name="password_confirmation" placeholder="Confirmar contraseña" required>
-                                    </div>
-                                    <div class="row form-group m-form__group m-login__form-sub">
-                                        <div class="col m--align-left">
-                                            <label class="m-checkbox m-checkbox--light">
-                                                <input type="checkbox" name="agree">I Agree the <a href="#" class="m-link m-link--focus">terms and conditions</a>.
-                                                <span></span>
-                                            </label>
-                                            <span class="m-form__help"></span>
-                                        </div>
-                                    </div>
-                                    <div class="m-login__form-action">
-                                        <button id="m_login_signup_submit" class="btn m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">Sign Up</button>&nbsp;&nbsp;
-                                        <button id="m_login_signup_cancel" class="btn m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn">Cancel</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="m-login__forget-password">
-                                <div class="m-login__head">
-                                    <h3 class="m-login__title">Forgotten Password ?</h3>
-                                    <div class="m-login__desc">Enter your email to reset your password:</div>
-                                </div>
-                                <form class="m-login__form m-form" action="">
-                                    <div class="form-group m-form__group">
-                                        <input class="form-control m-input" type="text" placeholder="Email" name="email" id="m_email" autocomplete="off">
-                                    </div>
-                                    <div class="m-login__form-action">
-                                        <button id="m_login_forget_password_submit" class="btn m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">Request</button>&nbsp;&nbsp;
-                                        <button id="m_login_forget_password_cancel" class="btn m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn">Cancel</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="m-login__account">
-                                <span class="m-login__account-msg">
-                                    Si aún no tienes cuenta
-                                </span>&nbsp;&nbsp;
-                                <a href="javascript:;" id="m_login_signup" class="m-link m-link--light m-login__account-link">Registrate</a>
+                            <div class="col m--align-right m-login__form-right">
+                                <a href="javascript:;" id="m_login_forget_password" class="m-link">Olvidé mi contraseña</a>
                             </div>
                         </div>
+                        <div class="m-login__form-action">
+                            <button type="submit" form="formLogin" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air  m-login__btn m-login__btn--primary">Acceder</button>
+                        </div>
+                    </form>
+                    
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                        <button type="submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air  m-login__btn m-login__btn--primary">Log Out</button>
+                    </a>
+                </div>
+                <div class="m-login__signup">
+                    <div class="m-login__head">
+                        <h3 class="m-login__title">Regístrate</h3>
+                        <div class="m-login__desc">Rellena los campos para crear la cuenta:</div>
                     </div>
+                    <form method="POST" id="formRegister" action="{{ route('register') }}" class="m-login__form m-form">
+                        @csrf
+                        <div class="form-group m-form__group">
+                            <input type="text" class="form-control m-input" name="name" value="{{ old('name') }}" placeholder="Nombre" required>
+
+                            @if ($errors->has('name'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-group m-form__group">
+                            <input type="email" class="form-control m-input" name="email" value="{{ old('email') }}" required placeholder="Email" autocomplete="off">
+
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-group m-form__group">
+                            <input type="password" class="form-control m-input" name="password" placeholder="Contraseña" required>
+
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-group m-form__group">
+                            <input type="password" class="form-control m-input m-login__form-input--last" name="password_confirmation" placeholder="Confirmar contraseña" required>
+                        </div>
+                        <div class="m-login__form-action">
+                            <button type="submit" form="formRegister" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air  m-login__btn m-login__btn--primary">Enviar</button>&nbsp;&nbsp;
+                            <button id="m_login_signup_cancel" class="btn m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn">Atrás</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="m-login__forget-password">
+                    <div class="m-login__head">
+                        <h3 class="m-login__title">¿No recuerdas tu contraseña?</h3>
+                        <div class="m-login__desc">¡Introducce tu mail para solucionar el problema!</div>
+                    </div>
+                    <form class="m-login__form m-form" action="">
+                        <div class="form-group m-form__group">
+                            <input class="form-control m-input" type="text" placeholder="Email" name="email" id="m_email" autocomplete="off">
+                        </div>
+                        <div class="m-login__form-action">
+                            <button id="m_login_forget_password_submit" class="btn m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">Request</button>&nbsp;&nbsp;
+                            <button id="m_login_forget_password_cancel" class="btn m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="m-login__account">
+                    <span class="m-login__account-msg">
+                        Si aún no tienes cuenta
+                    </span>&nbsp;&nbsp;
+                    <a href="javascript:;" id="m_login_signup" class="m-link m-link--light m-login__account-link">Registrate</a>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 
-        <!--begin:: Global Mandatory Vendors -->
-        <script src="{{ asset('assets/bo/vendors/jquery/dist/jquery.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/popper.js/dist/umd/popper.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/bootstrap/dist/js/bootstrap.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/js-cookie/src/js.cookie.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/moment/min/moment.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/tooltip.js/dist/umd/tooltip.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/perfect-scrollbar/dist/perfect-scrollbar.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/wnumb/wNumb.js')}}" type="text/javascript"></script>
+    <!--begin:: Global Mandatory Vendors -->
+    <script src="{{ asset('assets/bo/vendors/jquery/dist/jquery.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/popper.js/dist/umd/popper.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/bootstrap/dist/js/bootstrap.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/js-cookie/src/js.cookie.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/moment/min/moment.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/tooltip.js/dist/umd/tooltip.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/perfect-scrollbar/dist/perfect-scrollbar.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/wnumb/wNumb.js')}}" type="text/javascript"></script>
 
-        <!--end:: Global Mandatory Vendors -->
+    <!--end:: Global Mandatory Vendors -->
 
-        <!--begin:: Global Optional Vendors -->
-        <script src="{{ asset('assets/bo/vendors/jquery.repeater/src/lib.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/jquery.repeater/src/jquery.input.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/jquery.repeater/src/repeater.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/jquery-form/dist/jquery.form.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/block-ui/jquery.blockUI.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/forms/bootstrap-datepicker.init.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/forms/bootstrap-timepicker.init.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/bootstrap-daterangepicker/daterangepicker.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/forms/bootstrap-daterangepicker.init.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/bootstrap-maxlength/src/bootstrap-maxlength.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/bootstrap-switch/dist/js/bootstrap-switch.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/forms/bootstrap-switch.init.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/vendors/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/bootstrap-select/dist/js/bootstrap-select.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/select2/dist/js/select2.full.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/typeahead.js/dist/typeahead.bundle.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/handlebars/dist/handlebars.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/inputmask/dist/jquery.inputmask.bundle.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/inputmask/dist/inputmask/inputmask.date.extensions.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/inputmask/dist/inputmask/inputmask.numeric.extensions.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/inputmask/dist/inputmask/inputmask.phone.extensions.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/nouislider/distribute/nouislider.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/owl.carousel/dist/owl.carousel.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/autosize/dist/autosize.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/clipboard/dist/clipboard.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/ion-rangeslider/js/ion.rangeSlider.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/dropzone/dist/dropzone.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/summernote/dist/summernote.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/markdown/lib/markdown.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/bootstrap-markdown/js/bootstrap-markdown.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/forms/bootstrap-markdown.init.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/jquery-validation/dist/jquery.validate.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/jquery-validation/dist/additional-methods.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/forms/jquery-validation.init.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/bootstrap-notify/bootstrap-notify.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/base/bootstrap-notify.init.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/toastr/build/toastr.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/jstree/dist/jstree.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/raphael/raphael.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/morris.js/morris.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/chartist/dist/chartist.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/chart.js/dist/Chart.bundle.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/charts/chart.init.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/vendors/jquery-idletimer/idle-timer.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/waypoints/lib/jquery.waypoints.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/counterup/jquery.counterup.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/es6-promise-polyfill/promise.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/sweetalert2/dist/sweetalert2.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/base/sweetalert2.init.js')}}" type="text/javascript"></script>
+    <!--begin:: Global Optional Vendors -->
+    <script src="{{ asset('assets/bo/vendors/jquery.repeater/src/lib.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/jquery.repeater/src/jquery.input.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/jquery.repeater/src/repeater.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/jquery-form/dist/jquery.form.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/block-ui/jquery.blockUI.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/forms/bootstrap-datepicker.init.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/bootstrap-timepicker/js/bootstrap-timepicker.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/forms/bootstrap-timepicker.init.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/bootstrap-daterangepicker/daterangepicker.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/forms/bootstrap-daterangepicker.init.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/bootstrap-maxlength/src/bootstrap-maxlength.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/bootstrap-switch/dist/js/bootstrap-switch.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/forms/bootstrap-switch.init.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/vendors/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/bootstrap-select/dist/js/bootstrap-select.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/select2/dist/js/select2.full.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/typeahead.js/dist/typeahead.bundle.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/handlebars/dist/handlebars.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/inputmask/dist/jquery.inputmask.bundle.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/inputmask/dist/inputmask/inputmask.date.extensions.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/inputmask/dist/inputmask/inputmask.numeric.extensions.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/inputmask/dist/inputmask/inputmask.phone.extensions.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/nouislider/distribute/nouislider.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/owl.carousel/dist/owl.carousel.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/autosize/dist/autosize.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/clipboard/dist/clipboard.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/ion-rangeslider/js/ion.rangeSlider.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/dropzone/dist/dropzone.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/summernote/dist/summernote.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/markdown/lib/markdown.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/bootstrap-markdown/js/bootstrap-markdown.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/forms/bootstrap-markdown.init.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/jquery-validation/dist/jquery.validate.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/jquery-validation/dist/additional-methods.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/forms/jquery-validation.init.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/bootstrap-notify/bootstrap-notify.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/base/bootstrap-notify.init.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/toastr/build/toastr.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/jstree/dist/jstree.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/raphael/raphael.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/morris.js/morris.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/chartist/dist/chartist.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/chart.js/dist/Chart.bundle.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/charts/chart.init.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/vendors/jquery-idletimer/idle-timer.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/waypoints/lib/jquery.waypoints.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/counterup/jquery.counterup.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/es6-promise-polyfill/promise.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/sweetalert2/dist/sweetalert2.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/base/sweetalert2.init.js')}}" type="text/javascript"></script>
 
-        <!--end:: Global Optional Vendors -->
+    <!--end:: Global Optional Vendors -->
 
-        <!--begin::Global Theme Bundle -->
-        <script src="{{ asset('assets/bo/demo/base/scripts.bundle.js')}}" type="text/javascript"></script>
+    <!--begin::Global Theme Bundle -->
+    <script src="{{ asset('assets/bo/demo/base/scripts.bundle.js')}}" type="text/javascript"></script>
 
-        <!--end::Global Theme Bundle -->
+    <!--end::Global Theme Bundle -->
 
-        <!--begin::Page Scripts -->
-        <script src="{{ asset('assets/bo/snippets/custom/pages/user/login.js')}}" type="text/javascript"></script>
+    <!--begin::Page Scripts -->
+    <script src="{{ asset('assets/bo/snippets/custom/pages/user/login.js')}}" type="text/javascript"></script>
 
-        <!--end::Page Scripts -->
-</body>
-</html>
+    <!--end::Page Scripts -->
+    </body>
+<html>
