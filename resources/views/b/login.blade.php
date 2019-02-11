@@ -72,16 +72,15 @@
                 </div>
                 <div class="m-login__signin">
                     <div class="m-login__head">
-                        <h3 class="m-login__title">Inicia sesión</h3>
+                        <h3 class="m-login__title" style="color:black">Inicia sesión</h3>
                     </div>
                     <form method="POST" id="formLogin" action="{{ route('login') }}" class="m-login__form m-form">
                         @csrf
                         <div class="form-group m-form__group">
                             <input id="email" type="email" class="form-control m-input" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
-                            
                             @if ($errors->has('email'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('email') }}</strong>
+                                <span class="m--font-warning" role="alert">
+                                    {{ $errors->first('email') }}
                                 </span>
                             @endif
                         </div>
@@ -89,7 +88,7 @@
                             <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Password">
 
                             @if ($errors->has('password'))
-                                <span class="invalid-feedback" role="alert">
+                                <span class="m--font-warning" role="alert">
                                     <strong>{{ $errors->first('password') }}</strong>
                                 </span>
                             @endif
@@ -109,12 +108,6 @@
                             <button type="submit" form="formLogin" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air  m-login__btn m-login__btn--primary">Acceder</button>
                         </div>
                     </form>
-                    
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                        <button type="submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air  m-login__btn m-login__btn--primary">Log Out</button>
-                    </a>
                 </div>
                 <div class="m-login__signup">
                     <div class="m-login__head">
@@ -127,7 +120,7 @@
                             <input type="text" class="form-control m-input" name="name" value="{{ old('name') }}" placeholder="Nombre" required>
 
                             @if ($errors->has('name'))
-                                <span class="invalid-feedback" role="alert">
+                                <span class="m--font-warning" role="alert">
                                     <strong>{{ $errors->first('name') }}</strong>
                                 </span>
                             @endif
@@ -136,7 +129,7 @@
                             <input type="email" class="form-control m-input" name="email" value="{{ old('email') }}" required placeholder="Email" autocomplete="off">
 
                             @if ($errors->has('email'))
-                                <span class="invalid-feedback" role="alert">
+                                <span class="m--font-warning" role="alert">
                                     <strong>{{ $errors->first('email') }}</strong>
                                 </span>
                             @endif
@@ -145,7 +138,7 @@
                             <input type="password" class="form-control m-input" name="password" placeholder="Contraseña" required>
 
                             @if ($errors->has('password'))
-                                <span class="invalid-feedback" role="alert">
+                                <span class="m--font-warning" role="alert">
                                     <strong>{{ $errors->first('password') }}</strong>
                                 </span>
                             @endif
