@@ -72,7 +72,7 @@
                 </div>
                 <div class="m-login__signin">
                     <div class="m-login__head">
-                        <h3 class="m-login__title" style="color:black">Inicia sesión</h3>
+                        <h3 class="m-login__title">Inicia sesión</h3>
                     </div>
                     <form method="POST" id="formLogin" action="{{ route('login') }}" class="m-login__form m-form">
                         @csrf
