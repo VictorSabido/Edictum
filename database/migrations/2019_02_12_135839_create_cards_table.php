@@ -18,11 +18,11 @@ class CreateCardsTable extends Migration
             $table->integer('category_id')->unsigned()->nullable();
             $table->datetime('date')->nullable();
             $table->boolean('status');
-            $table->tinyInteger('order')->default(null);
-            $table->string('slug');
-            $table->string('media');
+            $table->tinyInteger('order')->default(0);
+            $table->string('slug')->nullable();
+            $table->string('media')->nullable();
             $table->string('title');
-            $table->text('body_card');
+            $table->text('body');
             
             $table->softDeletes();
             $table->timestamps();
@@ -42,7 +42,7 @@ class CreateCardsTable extends Migration
                 'slug'          => $faker->url,
                 'media'         => $faker->realText(200),
                 'title'         => $faker->realText(150),
-                'body_card'     => $faker->realText(15500),
+                'body'     => $faker->realText(15500),
             ]);
         }
     }
