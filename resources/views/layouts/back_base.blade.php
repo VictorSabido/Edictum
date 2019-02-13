@@ -53,12 +53,14 @@
         <link href="{{ asset('assets/bo/vendors/vendors/flaticon/css/flaticon.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/bo/vendors/vendors/metronic/css/styles.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/bo/vendors/vendors/fontawesome5/css/all.min.css')}}" rel="stylesheet" type="text/css" />
-
         <!--end:: Global Optional Vendors -->
 
         <!--begin::Global Theme Styles -->
         <link href="{{ asset('assets/bo/demo/base/style.bundle.css')}}" rel="stylesheet" type="text/css" />
         <!--end::Global Theme Styles -->
+
+        @stack('add_css')
+        
         <link rel="shortcut icon" href="{{ asset('assets/bo/demo/media/img/logo/favicon.ico')}}" />
     </head>
     <body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
@@ -84,7 +86,6 @@
         <script src="{{ asset('assets/bo/vendors/tooltip.js/dist/umd/tooltip.min.js')}}" type="text/javascript"></script>
         <script src="{{ asset('assets/bo/vendors/perfect-scrollbar/dist/perfect-scrollbar.js')}}" type="text/javascript"></script>
         <script src="{{ asset('assets/bo/vendors/wnumb/wNumb.js')}}" type="text/javascript"></script>
-
         <!--end:: Global Mandatory Vendors -->
 
         <!--begin:: Global Optional Vendors -->
@@ -142,17 +143,17 @@
         <script src="{{ asset('assets/bo/vendors/es6-promise-polyfill/promise.min.js')}}" type="text/javascript"></script>
         <script src="{{ asset('assets/bo/vendors/sweetalert2/dist/sweetalert2.min.js')}}" type="text/javascript"></script>
         <script src="{{ asset('assets/bo/vendors/js/framework/components/plugins/base/sweetalert2.init.js')}}" type="text/javascript"></script>
-
         <!--end:: Global Optional Vendors -->
 
         <!--begin::Global Theme Bundle -->
         <script src="{{ asset('assets/bo/demo/base/scripts.bundle.js')}}" type="text/javascript"></script>
-
         <!--end::Global Theme Bundle -->
 
         <!--begin::Page Scripts -->
         <script src="{{ asset('assets/bo/snippets/custom/pages/user/login.js')}}" type="text/javascript"></script>
-
         <!--end::Page Scripts -->
+
+        @stack('add_js')
+        @stack('add_scripts')
     </body>
 <html>
