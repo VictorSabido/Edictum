@@ -19,20 +19,21 @@ class AdminController extends Controller
     public static function test(){
 
         $card = Card::orderBy('id', 'desc')->first();
+        $categories = Category::get();
 
         // dd($card);
 
-        return view('test', compact('card'));
+        return view('test', compact('card', 'categories'));
     }
 
 
     public static function dashboard(){
         $t=date('m/d/Y H:m:s');
         // echo $t;
-        echo Carbon::createFromTimestamp(-1)->toDateTimeString(); 
-        echo '<br/>';
-        echo Carbon::now();
-        dd();
+        // echo Carbon::createFromTimestamp(-1)->toDateTimeString(); 
+        // echo '<br/>';
+        // echo Carbon::now();
+        // dd();
         // dd(date('m/d/Y H:m:s', $t));
         return view('b.dashboard');
     }
