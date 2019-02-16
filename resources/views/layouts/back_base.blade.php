@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <title>Admin Panel</title>
@@ -58,7 +58,7 @@
         <!--begin::Global Theme Styles -->
         <link href="{{ asset('assets/bo/demo/base/style.bundle.css')}}" rel="stylesheet" type="text/css" />
         <!--end::Global Theme Styles -->
-
+        <link href="{{ asset('css/app.css')}}" rel="stylesheet" type="text/css" />
         @stack('add_css')
         
         <link rel="shortcut icon" href="{{ asset('assets/bo/demo/media/img/logo/favicon.ico')}}" />
