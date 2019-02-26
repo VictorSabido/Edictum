@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Card;
 use App\Category;
+use Validator;
 use Faker;
 
 class AdminController extends Controller
@@ -46,9 +47,26 @@ class AdminController extends Controller
 
     public static function saveCard(Request $request){
 
+        //Validator
+        $rules = [
+            'title'     => 'required|max:255',
+            'slug'      => 'required|url',
+            'body'      => 'required',
+            'category'  => 'required',
+            'file'      => 'sometimes|required|mimes:jpeg,jpg,png',
+        ];
 
-        // dd(Carbon::now());
+        $messages = [];
 
+        $validator = Validator::make($request->all(), $rules, $messages);
+         
+        if ($validator->fails())
+        {
+             Session::flash('error', $validator->messages()->first());
+             return redirect()->back()->withInput();
+        }
+        
+        dd($validator);
         $card = new Card;
         $card->date = Carbon::now();
         $card->status = 1;
@@ -59,6 +77,7 @@ class AdminController extends Controller
         $card->body = '';
         $card->save();
 
+        dd();
         return redirect()->back();
     }
 }

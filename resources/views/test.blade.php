@@ -38,7 +38,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Categoría</label>
-                            <select class="selectpicker" data-style="form-control btn-secondary">
+                            <select class="selectpicker" name="category" data-style="form-control btn-secondary">
                                 <option ></option>
                                 @foreach ($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>
