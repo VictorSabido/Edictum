@@ -7,6 +7,14 @@
   box-shadow: unset !important;
 }
 
+.bootstrap-tagsinput {
+  width: 100%;
+}
+
+.label-info {
+  background-color: #0095c8;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

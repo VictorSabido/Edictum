@@ -25,21 +25,24 @@
             <ul id="sidebarnav">
                 <li class="nav-small-cap">PERSONAL</li>
                 <li>
+                    <a class="" href="{{ route('b_dashboard') }}" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Dashboard</span></a>
+                </li>
+                {{-- <li>
                     <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Widgets</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="widget-apps.html">Widget Apps</a></li>
                         <li><a href="widget-data.html">Widget Data</a></li>
                         <li><a href="widget-charts.html">Widget Charts</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="nav-devider"></li>
-                <li class="nav-small-cap">EXTRA COMPONENTS</li>
+                <li class="nav-small-cap">Herramientas</li>
                 <li>
-                    <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">Multi level dd</span></a>
+                    <a class="has-arrow " href="#" aria-expanded="false"><i class="mdi mdi-arrange-send-backward"></i><span class="hide-menu">Cards</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="#">item 1.1</a></li>
-                        <li><a href="#">item 1.2</a></li>
-                        <li><a href="#">item 1.4</a></li>
+                        <li><a href="{{ route('b_add_card') }}">Añadir nueva card</a></li>
+                        <li><a href="#">Ver o editar</a></li>
+                        <li><a href="#">Otros</a></li>
                     </ul>
                 </li>
             </ul>

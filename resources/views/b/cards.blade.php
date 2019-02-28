@@ -1,96 +1,117 @@
 @extends('layouts.back_base')
 @section('content')
-<div class="m-grid__item m-grid__item--fluid m-wrapper">
-    <div class="m-subheader ">
-        <div class="d-flex align-items-center">
-            <div class="mr-auto">
-                <h3 class="m-subheader__title m-subheader__title--separator">Información útil</h3>
-                <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
-                    <li class="m-nav__item m-nav__item--home">
-                        <a href="#" class="m-nav__link m-nav__link--icon">
-                            <i class="m-nav__link-icon la la-home"></i>
-                        </a>
-                    </li>
-                    <li class="m-nav__separator">-</li>
-                    <li class="m-nav__item">
-                        <a href="" class="m-nav__link">
-                            <span class="m-nav__link-text">Portlets</span>
-                        </a>
-                    </li>
-                    <li class="m-nav__separator">-</li>
-                    <li class="m-nav__item">
-                        <a href="" class="m-nav__link">
-                            <span class="m-nav__link-text">Advanced Portlets</span>
-                        </a>
-                    </li>
-                </ul>
+
+<form action="{{route('b_saveCard')}}" method="POST" enctype="multipart/form-data">
+    @csrf
+<div class="row">
+        <div class="col-md-9">
+            <div class="card card-block">
+                <h3 class="box-title m-b-0">Añadir nueva card</h3>
+                <p class="text-muted m-b-30 font-13"> Información básica </p>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="">Título</label>
+                            <input type="text" name="title" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">URL</label>
+                            <input type="url" name="slug" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Contenido</label>
+                            <textarea name="body" id="ckeditor"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10" style="float: right">Submit</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="m-content">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="m-portlet m-portlet--brand m-portlet--head-solid-bg m-portlet--bordered">
-                    <div class="m-portlet__head">
-                        <div class="m-portlet__head-caption">
-                            <div class="m-portlet__head-title">
-                                <span class="m-portlet__head-icon">
-                                    <i class="flaticon-placeholder-2"></i>
-                                </span>
-                                <h3 class="m-portlet__head-text">
-                                    Portlet Action Icons
-                                </h3>
-                            </div>
+        <div class="col-md-3">
+            <div class="card card-block">
+                <p class="text-muted m-b-30 font-13"> Clasificación y multimedia </p>
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="form-group bt-switch">
+                            <label for="">Estado </label>
+                            <input type="checkbox" name="status" value="a" checked data-on-color="success" data-off-color="danger" data-on-text="Activado" data-off-text="Desactivado">
                         </div>
-                        <div class="m-portlet__head-tools">
-                            <ul class="m-portlet__nav">
-                                <li class="m-portlet__nav-item">
-                                    <a href="" class="m-portlet__nav-link m-portlet__nav-link--icon"><i class="la la-cloud-upload"></i></a>
-                                </li>
-                                <li class="m-portlet__nav-item">
-                                    <a href="" class="m-portlet__nav-link m-portlet__nav-link--icon"><i class="la la-cog"></i></a>
-                                </li>
-                                <li class="m-portlet__nav-item m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover">
-                                    <a href="#" class="m-portlet__nav-link m-portlet__nav-link--icon m-dropdown__toggle">
-                                        <i class="la la-ellipsis-v"></i>
-                                    </a>
-                                    <div class="m-dropdown__wrapper">
-                                        <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                                        <div class="m-dropdown__inner">
-                                            <div class="m-dropdown__body">
-                                                <div class="m-dropdown__content">
-                                                    <ul class="m-nav">
-                                                        <li class="m-nav__section m-nav__section--first">
-                                                            <span class="m-nav__section-text">Quick Actions</span>
-                                                        </li>
-                                                        <li class="m-nav__item">
-                                                            <a href="" class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                                <span class="m-nav__link-text">Support</span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="m-nav__separator m-nav__separator--fit">
-                                                        </li>
-                                                        <li class="m-nav__item">
-                                                            <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">Cancel</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="form-group">
+                            <label for="">Categoría</label>
+                            <select class="selectpicker" name="category" data-style="form-control btn-secondary">
+                                <option ></option>
+                                @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
-                    </div>
-                    <div class="m-portlet__body">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply
-                        dummy text of the printing and typesetting industry. 
+                        <div class="form-group">
+                            <label for="">Tags</label>
+                            <input type="text" name="tags" data-role="tagsinput" name="" id="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Imagen</label>
+                            <input type="file" name="file" id="input-file-now-custom-1" class="dropify" data-default-file="" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</form>
 
 @endsection
+
+
+
+@push('add_css')
+    <link href="{{ asset('assets/bo/plugins/bootstrap-switch/bootstrap-switch.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/bo/plugins/bootstrap-select/bootstrap-select.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('assets/bo/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('assets/bo/plugins/dropify/dist/css/dropify.min.css')}}">
+@endpush
+
+@push('add_js')
+    <script src="{{ asset('assets/bo/plugins/bootstrap-switch/bootstrap-switch.min.js')}}"></script>
+    <script src="{{ asset('assets/bo/plugins/bootstrap-select/bootstrap-select.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/bo/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js')}}"></script>
+    <script src="{{ asset('assets/bo/plugins/dropify/dist/js/dropify.min.js')}}"></script>
+    <script src="{{ asset('assets/ckeditor/ckeditor.js') }}"></script>
+@endpush
+
+@push('add_scripts')
+    <script>
+        $('.dropify').dropify({
+            messages: {
+                'default': 'Arrastra o haz click',
+                'replace': 'Drag and drop or click to replace',
+                'remove':  'Remove',
+                'error':   'Ooops, something wrong happended.'
+            }
+        });
+
+        $(document).ready(function() {
+            radioswitch.init()
+        });
+
+        $(".bt-switch input[type='checkbox'], .bt-switch input[type='radio']").bootstrapSwitch();
+        var radioswitch = function() {
+            var bt = function() {
+                $(".radio-switch").on("switch-change", function() {
+                    $(".radio-switch").bootstrapSwitch("toggleRadioState")
+                }), $(".radio-switch").on("switch-change", function() {
+                    $(".radio-switch").bootstrapSwitch("toggleRadioStateAllowUncheck")
+                }), $(".radio-switch").on("switch-change", function() {
+                    $(".radio-switch").bootstrapSwitch("toggleRadioStateAllowUncheck", !1)
+                })
+            };
+            return {
+                init: function() {
+                    bt()
+                }
+            }
+        }();
+
+        CKEDITOR.replace ( 'ckeditor' );
+    </script>
+@endpush
