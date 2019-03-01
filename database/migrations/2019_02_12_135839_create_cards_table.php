@@ -19,14 +19,14 @@ class CreateCardsTable extends Migration
             $table->datetime('date')->nullable();
             $table->boolean('status');
             $table->tinyInteger('order')->default(0);
+            $table->string('title');
+            $table->string('tags')->nullable();
             $table->string('slug')->nullable();
             $table->string('media')->nullable();
-            $table->string('title');
             $table->text('body');
             
             $table->softDeletes();
             $table->timestamps();
-            
         });
 
         $faker = Faker\Factory::create();
