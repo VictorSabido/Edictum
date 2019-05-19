@@ -17,6 +17,12 @@ class AdminController extends Controller
     }
 
 
+    public function index(){
+
+        // return view();x
+    }
+
+
     public static function test(){
 
         $card = Card::orderBy('id', 'desc')->first();
@@ -29,6 +35,11 @@ class AdminController extends Controller
 
 
     public static function dashboard(){
+
+        return view('b.padel.form');
+
+
+
         $t=date('m/d/Y H:m:s');
         // echo $t;
         // echo Carbon::createFromTimestamp(-1)->toDateTimeString(); 
