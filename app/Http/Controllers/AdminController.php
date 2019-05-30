@@ -36,7 +36,7 @@ class AdminController extends Controller
 
     public static function dashboard(){
 
-        return view('b.padel.form');
+        // return view('b.padel.form');
 
 
 

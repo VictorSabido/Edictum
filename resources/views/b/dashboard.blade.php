@@ -1,131 +1,149 @@
 @extends('layouts.back_base')
 @section('content')
 
-<!-- BEGIN: Subheader -->
-<div class="m-subheader ">
-        <div class="d-flex align-items-center">
-            <div class="mr-auto">
-                <h3 class="m-subheader__title ">Dashboard</h3>
+<div class="row">
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3">
+        <div class="card card-inverse card-info">
+            <div class="box bg-info text-center">
+                <h1 class="font-light text-white">2,064</h1>
+                <h6 class="text-white">Sessions</h6>
             </div>
         </div>
     </div>
-    <div class="m-content">
-        <!--begin:: Widgets/Stats-->
-        <div class="m-portlet  m-portlet--unair">
-            <div class="m-portlet__body  m-portlet__body--no-padding">
-                <div class="row m-row--no-padding m-row--col-separator-xl">
-                    <div class="col-md-12 col-lg-6 col-xl-3">
-                        <!--begin::Total Profit-->
-                        <div class="m-widget24">
-                            <div class="m-widget24__item">
-                                <h4 class="m-widget24__title">
-                                    Total Frofit
-                                </h4><br>
-                                <span class="m-widget24__desc">
-                                    All Customs Value
-                                </span>
-                                <span class="m-widget24__stats m--font-brand">
-                                    $18M
-                                </span>
-                                <div class="m--space-10"></div>
-                                <div class="progress m-progress--sm">
-                                    <div class="progress-bar m--bg-brand" role="progressbar" style="width: 78%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <span class="m-widget24__change">
-                                    Change
-                                </span>
-                                <span class="m-widget24__number">
-                                    78%
-                                </span>
-                            </div>
-                        </div>
-                        <!--end::Total Profit-->
-                    </div>
-                    <div class="col-md-12 col-lg-6 col-xl-3">
-                        <!--begin::New Feedbacks-->
-                        <div class="m-widget24">
-                            <div class="m-widget24__item">
-                                <h4 class="m-widget24__title">
-                                    New Feedbacks
-                                </h4><br>
-                                <span class="m-widget24__desc">
-                                    Customer Review
-                                </span>
-                                <span class="m-widget24__stats m--font-info">
-                                    1349
-                                </span>
-                                <div class="m--space-10"></div>
-                                <div class="progress m-progress--sm">
-                                    <div class="progress-bar m--bg-info" role="progressbar" style="width: 84%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <span class="m-widget24__change">
-                                    Change
-                                </span>
-                                <span class="m-widget24__number">
-                                    84%
-                                </span>
-                            </div>
-                        </div>
-                        <!--end::New Feedbacks-->
-                    </div>
-                    <div class="col-md-12 col-lg-6 col-xl-3">
-                        <!--begin::New Orders-->
-                        <div class="m-widget24">
-                            <div class="m-widget24__item">
-                                <h4 class="m-widget24__title">
-                                    New Orders
-                                </h4><br>
-                                <span class="m-widget24__desc">
-                                    Fresh Order Amount
-                                </span>
-                                <span class="m-widget24__stats m--font-danger">
-                                    567
-                                </span>
-                                <div class="m--space-10"></div>
-                                <div class="progress m-progress--sm">
-                                    <div class="progress-bar m--bg-danger" role="progressbar" style="width: 69%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <span class="m-widget24__change">
-                                    Change
-                                </span>
-                                <span class="m-widget24__number">
-                                    69%
-                                </span>
-                            </div>
-                        </div>
-                        <!--end::New Orders-->
-                    </div>
-                    <div class="col-md-12 col-lg-6 col-xl-3">
-                        <!--begin::New Users-->
-                        <div class="m-widget24">
-                            <div class="m-widget24__item">
-                                <h4 class="m-widget24__title">
-                                    New Users
-                                </h4><br>
-                                <span class="m-widget24__desc">
-                                    Joined New User
-                                </span>
-                                <span class="m-widget24__stats m--font-success">
-                                    276
-                                </span>
-                                <div class="m--space-10"></div>
-                                <div class="progress m-progress--sm">
-                                    <div class="progress-bar m--bg-success" role="progressbar" style="width: 90%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <span class="m-widget24__change">
-                                    Change
-                                </span>
-                                <span class="m-widget24__number">
-                                    90%
-                                </span>
-                            </div>
-                        </div>
-                        <!--end::New Users-->
-                    </div>
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3">
+        <div class="card card-primary card-inverse">
+            <div class="box text-center">
+                <h1 class="font-light text-white">1,738</h1>
+                <h6 class="text-white">Users</h6>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3">
+        <div class="card card-inverse card-success">
+            <div class="box text-center">
+                <h1 class="font-light text-white">5963</h1>
+                <h6 class="text-white">Page Views</h6>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3">
+        <div class="card card-inverse card-warning">
+            <div class="box text-center">
+                <h1 class="font-light text-white">10%</h1>
+                <h6 class="text-white">Bounce Rate</h6>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- Column -->
+    <div class="col-lg-4">
+        <div class="card">
+            <img class="card-img-top img-responsive" src="../assets/bo/images/big/img1.jpg" alt="Card">
+            <div class="card-block">
+                <ul class="list-inline font-14">
+                    <li class="p-l-0">20 May 2016</li>
+                    <li><a href="javascript:void(0)" class="link">3 Comment</a></li>
+                </ul>
+                <h3 class="font-normal">Featured Hydroflora Pots Garden &amp; Outdoors</h3>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-lg-4">
+        <div class="card">
+            <img class="card-img-top img-responsive" src="../assets/bo/images/big/img2.jpg" alt="Card">
+            <div class="card-block">
+                <ul class="list-inline font-14">
+                    <li class="p-l-0">20 May 2016</li>
+                    <li><a href="javascript:void(0)" class="link">3 Comment</a></li>
+                </ul>
+                <h3 class="font-normal">Featured Hydroflora Pots Garden &amp; Outdoors</h3>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-lg-4">
+        <div class="card">
+            <img class="card-img-top img-responsive" src="../assets/bo/images/big/img4.jpg" alt="Card">
+            <div class="card-block">
+                <ul class="list-inline font-14">
+                    <li class="p-l-0">20 May 2016</li>
+                    <li><a href="javascript:void(0)" class="link">3 Comment</a></li>
+                </ul>
+                <h3 class="font-normal">Featured Hydroflora Pots Garden &amp; Outdoors</h3>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+</div>
+<div class="row">
+    <!-- Column -->
+    <div class="col-lg-6 col-md-6">
+        <div class="card card-block">
+            <h3 class="card-title">Notification</h3>
+            <div class="message-box">
+                <div class="message-widget">
+                    <!-- Message -->
+                    <a href="#">
+                        <div class="user-img"><span class="round bg-primary"><i class="mdi mdi-email"></i></span></div>
+                        <div class="mail-contnet">
+                            <h5>You have 3 new messages</h5> <span class="mail-desc">Daniel Kristeen, Hanna Giover, Jeffry Brown</span> <span class="time">9:30 AM</span> </div>
+                    </a>
+                    <!-- Message -->
+                    <a href="#">
+                        <div class="user-img"><span class="round bg-danger"><i class="mdi mdi-earth"></i></span></div>
+                        <div class="mail-contnet">
+                            <h5>Newsfeed available </h5> <span class="mail-desc">Todays headlines : Breakdancing Grandma Proves ..</span> <span class="time">9:10 AM</span> </div>
+                    </a>
+                    <!-- Message -->
+                    <a href="#">
+                        <div class="user-img"> <span class="round bg-success"><i class="mdi mdi-currency-usd"></i></span></div>
+                        <div class="mail-contnet">
+                            <h5>2 Invoices to pay</h5> <span class="mail-desc">$3500 from Krishnan, $2000 from Akhil</span> <span class="time">9:08 AM</span> </div>
+                    </a>
+                    <!-- Message -->
+                    <a href="#">
+                        <div class="user-img"><span class="round"><i class="mdi mdi-comment-check-outline"></i></span></div>
+                        <div class="mail-contnet">
+                            <h5>15 New comments</h5> <span class="mail-desc">Jhonny : Hey this stuff is awesome and how can i ..</span> <span class="time">9:02 AM</span> </div>
+                    </a>
                 </div>
             </div>
         </div>
-        <!--end:: Widgets/Stats-->
+    </div>
+    <!-- Column -->
+    <div class="col-lg-6 col-md-6">
+        <div class="card">
+            <div class="card-block">
+                <select class="custom-select pull-right">
+                    <option selected="">January</option>
+                    <option value="1">February</option>
+                    <option value="2">March</option>
+                    <option value="3">April</option>
+                </select>
+                <h3 class="card-title">Visit source</h3>
+                <div id="m-piechart" style="width:100%; height:278px"></div>
+                <div class="text-center">
+                    <ul class="list-inline m-t-20">
+                        <li>
+                            <h6 class="text-muted"><i class="fa fa-circle m-r-5 text-success"></i>Mobile</h6> </li>
+                        <li>
+                            <h6 class="text-muted"><i class="fa fa-circle m-r-5 text-primary"></i>Desktop</h6> </li>
+                        <li>
+                            <h6 class="text-muted"><i class="fa fa-circle m-r-5 text-danger"></i>Tablet</h6> </li>
+                        <li>
+                            <h6 class="text-muted"><i class="fa fa-circle m-r-5 text-muted"></i>Other</h6> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
