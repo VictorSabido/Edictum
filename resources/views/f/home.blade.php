@@ -1,0 +1,1 @@
+@extends('f.partials.base_front')

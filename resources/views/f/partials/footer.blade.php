@@ -1,54 +1,137 @@
-<footer id="footer" class="footer-hover-links-light mt-0" data-plugin-image-background data-plugin-options="{'imageUrl': 'assets/web/img/footer/background-1.png', 'bgPosition': 'center 0'}">
+<!-- footer -->
+<footer class="footer page-section-pt">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-5 mb-4 mb-lg-0">
-                <a href="index.html" class="logo">
-                    <img alt="EZY Website Template" class="img-fluid mb-3" src="assets/web/img/logo-footer.png">
-                </a>
-                <p>Phasellus blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc.</p>
-                <ul class="list list-icon list-unstyled">
-                    <li class="mb-2"><i class="fas fa-angle-right mr-2 ml-1"></i> <span class="text-color-light">Address:</span> 1234 Street Name, City Name, USA</li>
-                    <li class="mb-2"><i class="fas fa-angle-right mr-2 ml-1"></i> <span class="text-color-light">Phone:</span> <a href="tel:+1234567890">(123) 456-7890</a></li>
-                    <li class="mb-2"><i class="fas fa-angle-right mr-2 ml-1"></i> <span class="text-color-light">Email:</span> <a href="mailto:mail@example.com" class="link-underline-light">mail@example.com</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 mb-4 mb-lg-0">
-                <h2 class="text-3 mb-3">USEFUL LINKS</h2>
-                <ul class="list list-icon list-unstyled">
-                    <li class="mb-2"><i class="fas fa-angle-right mr-2 ml-1"></i> <a href="https://themeforest.net/item/ezy-responsive-multipurpose-html5-template/21814871">Buy EZY Now</a></li>
-                    <li class="mb-2"><i class="fas fa-angle-right mr-2 ml-1"></i> <a href="contact-us-2.html">Contact Us</a></li>
-                    <li class="mb-2"><i class="fas fa-angle-right mr-2 ml-1"></i> <a href="contact-us-3.html">Hire Us</a></li>
-                    <li class="mb-2"><i class="fas fa-angle-right mr-2 ml-1"></i> <a href="#">Our Profile</a></li>
-                    <li class="mb-2"><i class="fas fa-angle-right mr-2 ml-1"></i> <a href="#">Get Support</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3">
-                <h2 class="text-3 mb-3">LATEST NEWS</h2>
-                <div class="mb-3">
-                    <p class="mb-1"><a href="blog-single-post.html" class="d-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent</a></p>
-                    <a href="blog-single-post.html" class="font-tertiary font-style-italic text-color-light">March 5, 2018</a>
-                </div>
-                <div>
-                    <p class="mb-1"><a href="blog-single-post.html" class="d-block">Dolor sit amet, consectetur adipiscing elit.</a></p>
-                    <a href="blog-single-post.html" class="font-tertiary font-style-italic text-color-light">March 5, 2018</a>
-                </div>
-            </div>
-        </div>
+      <div class="footer-contact white-bg">
+              <div class="row">
+                  <div class="col-lg-4 col-md-4 bottom-m3">
+                      <div class="contact-box">
+                          <div class="contact-icon">
+                              <i class="ti-direction-alt"></i>
+                          </div>
+                          <div class="contact-info">
+                              <div class="text-center">
+                                  <h5 class="mt-10 mb-10">17504 Carlton Cuevas Rd, </h5>
+                                  <span>Gulfport, MS, 39503</span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 bottom-m3">
+                      <div class="contact-box">
+                          <div class="contact-icon">
+                              <i class="ti-headphone-alt"></i>
+                          </div>
+                          <div class="contact-info">
+                              <div class="text-center">
+                                  <h5 class="mt-10 mb-10">+(704) 279-1249</h5>
+                                  <span>Mon-Fri 8:30am-6:30pm</span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4">
+                      <div class="contact-box">
+                          <div class="contact-icon">
+                              <i class="ti-email"></i>
+                          </div>
+                          <div class="contact-info">
+                              <div class="text-center">
+                                  <h5 class="mt-10 mb-10"> letstalk@webster.com</h5>
+                                  <span>24 X 7 online support</span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+    <div class="row top">
+    <div class="col-lg-6 col-md-6">
+      <img class="img-fluid" id="logo-footer" src="images/logo-dark.png" alt="">
     </div>
-    <div class="footer-copyright">
-        <div class="container">
-            <div class="row text-center text-md-left align-items-center">
-                <div class="col-md-7 col-lg-8">
-                    <ul class="social-icons social-icons-transparent social-icons-icon-light social-icons-lg">
-                        <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                        <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                        <li class="social-icons-instagram"><a href="http://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-md-5 col-lg-4">
-                    <p class="text-md-right pb-0 mb-0">Copyrights © 2018. All Rights Reserved by Okler</p>
-                </div>
-            </div>
-        </div>
+     
+    <div class="col-lg-6 col-md-6">
+      <div class="social text-left sm-mt-0 text-md-right xs-mt-20">
+          <ul>
+              <li>
+                  <a href="#"> <i class="fa fa-facebook"></i> </a>
+              </li>
+              <li>
+                  <a href="#"> <i class="fa fa-twitter"></i> </a>
+              </li>
+            
+              <li>
+                  <a href="#"> <i class="fa fa-dribbble"></i> </a>
+              </li>
+             
+              <li>
+                  <a href="#"> <i class="fa fa-linkedin"></i> </a>
+              </li>
+          </ul>
+      </div>
+    </div>
+    
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+         <div class="divider mt-50 mb-50"></div>
+      </div>
+    </div>
+    
+    <div class="row">
+    <div class="col-lg-5 col-md-5 sm-mt-30">
+      <div class="about-content">
+          <h6 class="mb-20 text-uppercase">about us</h6>
+          <p>Webster is the most enticing, creative, modern and multipurpose Premium HTML5 Template suitable for any business or corporate websites. Build whatever you like with the Webster. It has endless possibilities for creating stunning websites no matter what type of business is!</p>
+      </div>
+    </div>
+    <div class="col-lg-7 col-md-7 sm-mt-30 sm-mb-30">
+      <h6 class="mb-20 text-uppercase">Useful Links</h6>
+      <div class="usefull-link">
+          <div class="row">
+              <div class="col-lg-4 col-sm-4">
+                  <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Service</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-4 col-sm-4">
+                  <ul>
+                   <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Create Account</a></li>
+                  <li><a href="#">Company Philosophy</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-4 col-sm-4">
+                  <ul>
+                     <li><a href="#">Corporate Culture</a></li>
+                     <li><a href="#">Portfolio</a></li>
+                     <li><a href="#">Client Management</a></li>
+                  </ul>
+              </div>
+          </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    
+    <div class="copyright gray-bg mt-50">
+    <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+          <ul class="text-left">
+             <li class="list-inline-item"><a href="#">Terms & Conditions </a> &nbsp;&nbsp;&nbsp;|</li>
+             <li class="list-inline-item"><a href="#">API Use Policy </a> &nbsp;&nbsp;&nbsp;|</li>
+             <li class="list-inline-item"><a href="#">Privacy Policy </a> </li>
+          </ul>
+      </div>
+      <div class="col-md-6">
+          <div class="text-left text-md-right xs-mt-15">
+              <p> &copy;Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="#"> Webster </a> All Rights Reserved </p>
+          </div>
+      </div>
+    </div>
+    </div>
     </div>
 </footer>
+<!-- footer -->

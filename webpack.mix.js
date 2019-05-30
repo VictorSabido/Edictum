@@ -11,66 +11,137 @@ const mix = require('laravel-mix');
  |
  */
 mix.sass('resources/sass/app.scss', 'public/css');
+
+
+
+
+
+// CSS WEB FRONT -> PLUGINS - CSS
 // mix.styles([
 //    // Vendor CSS
 //    'resources/ezy_theme/vendor/bootstrap/css/bootstrap.min.css',
-//    'resources/ezy_theme/vendor/font-awesome/css/fontawesome-all.min.css',
-//    'resources/ezy_theme/vendor/animate/animate.min.css',
-//    'resources/ezy_theme/vendor/linear-icons/css/linear-icons.min.css',
-//    'resources/ezy_theme/vendor/owl.carousel/assets/owl.carousel.min.css',
-//    'resources/ezy_theme/vendor/owl.carousel/assets/owl.theme.default.min.css',
-//    'resources/ezy_theme/vendor/magnific-popup/magnific-popup.min.css',
-//    'resources/ezy_theme/master/style-switcher/bootstrap-colorpicker/css/bootstrap-colorpicker.css',
-//    // Theme CSS
-//    'resources/ezy_theme/css/theme.css',
-//    'resources/ezy_theme/css/theme-elements.css',
-//    // Current Page CSS 
-//    'resources/ezy_theme/vendor/rs-plugin/css/settings.css',
-//    'resources/ezy_theme/vendor/rs-plugin/css/layers.css',
-//    'resources/ezy_theme/vendor/rs-plugin/css/navigation.css',
-//    // Skin CSS
-//    'resources/ezy_theme/css/skins/default.css',
 
 // ], 'public/assets/web/css/app.css', { outputStyle: 'compressed' });
 
-// mix.copy([
-//    'resources/ezy_theme/vendor/modernizr',
-// ], 'public/assets/web/modernizr');
+/*************
+*     FRONT
+/************/
+mix
+   // CSS WEB FRONT -> PLUGINS - CSS
+   .styles([
+      // Vendor CSS
+      'resources/front/css/plugins/bootstrap.min.css',
+      'resources/front/css/plugins/mega_menu.css',
+      'resources/front/css/plugins/animate.css',
+      'resources/front/css/plugins/font-awesome.min.css',
+      'resources/front/css/plugins/bootstrap-datetimepicker.min.css',
+      'resources/front/css/plugins/dataTables.bootstrap4.min.css',
+      'resources/front/css/plugins/magnific-popup.css',
+      'resources/front/css/plugins/mediaelementplayer.css',
+      'resources/front/css/plugins/owl.carousel.min.css',
+      'resources/front/css/plugins/slick-theme.css',
+      'resources/front/css/plugins/themify-icons.css',
+      'resources/front/css/plugins/fullcalendar.css',
 
-// mix.copy([
-//    'resources/ezy_theme/css/fonts',
-// ], 'public/assets/web/fonts');
+   ], 'public/web/css/basic.css', { outputStyle: 'compressed' })
+
+   // CSS WEB FRONT -> SETTINGS REVOLUTION 
+   .styles([
+      'resources/front/revolution/css/settings.css',
+   ], 'public/web/css/settings.css', { outputStyle: 'compressed' })
+
+   // CSS WEB FRONT -> TYPOGRAPHY
+   .styles([
+      'resources/front/css/typography.css',
+   ], 'public/web/css/typography.css', { outputStyle: 'compressed' })
+
+   // CSS WEB FRONT -> PLUGINS - CSS
+   .styles([
+      // Vendor CSS
+      'resources/front/css/shortcodes/accordion.css',
+      'resources/front/css/shortcodes/action-box.css',
+      'resources/front/css/shortcodes/blockquote.css',
+      'resources/front/css/shortcodes/bootstrap-typography.css',
+      'resources/front/css/shortcodes/button.css',
+      'resources/front/css/shortcodes/clients.css',
+      'resources/front/css/shortcodes/contact-form.css',
+      'resources/front/css/shortcodes/countdown.css',
+      'resources/front/css/shortcodes/counter.css',
+      'resources/front/css/shortcodes/divider.css',
+      'resources/front/css/shortcodes/dropcap.css',
+      'resources/front/css/shortcodes/feature-text.css',
+      'resources/front/css/shortcodes/list-style.css',
+      'resources/front/css/shortcodes/nice-select.css',
+      'resources/front/css/shortcodes/owl-carousel.css',
+      'resources/front/css/shortcodes/page-title.css',
+      'resources/front/css/shortcodes/pie-chart.css',
+      'resources/front/css/shortcodes/pricing.css',
+      'resources/front/css/shortcodes/progress-bar.css',
+      'resources/front/css/shortcodes/section-title.css',
+      'resources/front/css/shortcodes/shortcodes.css',
+      'resources/front/css/shortcodes/social-icons.css',
+      'resources/front/css/shortcodes/tabs.css',
+      'resources/front/css/shortcodes/team.css',
+      'resources/front/css/shortcodes/testimonial.css',
+      'resources/front/css/shortcodes/side-panel.css',
+      'resources/front/css/shortcodes/onload-modal.css',
+
+   ], 'public/web/css/shortcodes.css', { outputStyle: 'compressed' })
+
+   // CSS WEB FRONT -> STYLE & RESPONSIVE
+   .styles([
+      'resources/front/css/style.css',
+      'resources/front/css/responsive.css',
+
+   ], 'public/web/css/style.css', { outputStyle: 'compressed' })
+
+   // FONTS
+   .copy([
+      'resources/front/fonts/',
+   ], 'public/web/fonts')
+
+
+   // JS WEB FRONT -> BASISCS
+   .scripts([
+      'resources/front/js/jquery-3.3.1.min.js',
+      'resources/front/js/plugins-jquery.js',
+
+   ], 'public/web/js/basic.js', { outputStyle: 'compressed' })
+
+   // JS WEB FRONT REVOLUTION
+   .scripts([
+      'resources/front/revolution/js/jquery.themepunch.tools.min.js',
+      'resources/front/revolution/js/jquery.themepunch.revolution.min.js',
+      // Extensiones
+      'resources/front/revolution/js/extensions/revolution.extension.actions.min.js',
+      'resources/front/revolution/js/extensions/revolution.extension.carousel.min.js',
+      'resources/front/revolution/js/extensions/revolution.extension.kenburn.min.js',
+      'resources/front/revolution/js/extensions/revolution.extension.layeranimation.min.js',
+      'resources/front/revolution/js/extensions/revolution.extension.migration.min.js',
+      'resources/front/revolution/js/extensions/revolution.extension.navigation.min.js',
+      'resources/front/revolution/js/extensions/revolution.extension.parallax.min.js',
+      'resources/front/revolution/js/extensions/revolution.extension.slideanims.min.js',
+      'resources/front/revolution/js/extensions/revolution.extension.video.min.js',
+      // Custom Revolution
+      'resources/front/revolution/js/revolution-custom.js',
+
+   ], 'public/web/js/revo.js', { outputStyle: 'compressed' })
+
+   // JS WEB FRONT CUSTOM JS
+   .scripts([
+      'resources/front/js/custom.js'
+
+   ], 'public/web/js/custom.js', { outputStyle: 'compressed' })
+   .version()
+;
+
+/*************
+* END FRONT
+/************/
+
+
 
 // mix.copy([
 //    'resources/ezy_theme/css/webfonts',
 // ], 'public/assets/web/webfonts');
-
-// mix.scripts([
-//    'reources/ezy_theme/vendor/jquery/jquery.min.js',
-//    'reources/ezy_theme/vendor/jquery.appear/jquery.appear.min.js',
-//    'reources/ezy_theme/vendor/jquery.easing/jquery.easing.min.js',
-//    'reources/ezy_theme/vendor/jquery-cookie/jquery-cookie.min.js',
-//    'reources/ezy_theme/vendor/bootstrap/js/bootstrap.bundle.min.js',
-//    'reources/ezy_theme/vendor/common/common.min.js',
-//    'reources/ezy_theme/vendor/jquery.validation/jquery.validation.min.js',
-//    'reources/ezy_theme/vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js',
-//    'reources/ezy_theme/vendor/jquery.gmap/jquery.gmap.min.js',
-//    'reources/ezy_theme/vendor/jquery.lazyload/jquery.lazyload.min.js',
-//    'reources/ezy_theme/vendor/isotope/jquery.isotope.min.js',
-//    'reources/ezy_theme/vendor/owl.carousel/owl.carousel.min.js',
-//    'reources/ezy_theme/vendor/magnific-popup/jquery.magnific-popup.min.js',
-//    'reources/ezy_theme/vendor/vide/vide.min.js',
-//    'reources/ezy_theme/vendor/vivus/vivus.min.js',
-//    'reources/ezy_theme/master/style-switcher/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js',
-//    // Theme Base, Components and Settings
-//    'reources/ezy_theme/js/theme.js',
-//    // Current Page Vendor and Views
-//    'reources/ezy_theme/vendor/rs-plugin/js/jquery.themepunch.tools.min.js',
-//    'reources/ezy_theme/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js',
-//    // Theme Custom
-//    'reources/ezy_theme/js/custom.js',
-//    // Theme Initialization Files
-//    'reources/ezy_theme/js/theme.init.js',
-//    // 'node_modules/gentelella/build/js/custom.js',
-// ], 'public/assets/web/js/app.js', { outputStyle: 'compressed' });
 

@@ -42,3 +42,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/test', 'AdminController@test')->name('test');
+
+// --------------------------
+//          FRONT
+// --------------------------
+Route::get('/', 'HomeController@index');
+
