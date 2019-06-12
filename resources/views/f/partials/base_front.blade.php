@@ -16,11 +16,11 @@
     <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,500i,600,700,800,900|Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800">
     
-    <link rel="stylesheet" type="text/css" href="{{asset('web/css/basic.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('web/css/settings.css')}}" media="screen" />
-    <link rel="stylesheet" type="text/css" href="{{asset('web/css/typography.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('web/css/shortcodes.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('web/css/style.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset(mix('web/css/basic.css')) }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset(mix('web/css/settings.css')) }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ asset(mix('web/css/typography.css')) }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset(mix('web/css/shortcodes.css')) }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset(mix('web/css/style.css')) }}" />
   
 </head>
 
@@ -34,8 +34,6 @@
 
     @include('f.partials.menu')
     @include('f.partials.rev_slider')
-    
-    
 
     @include('f.partials.footer')
 
@@ -43,14 +41,14 @@
 
     <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
 
-    <script src="{{asset('web/js/basic.js')}}"></script>
+    <script src="{{ asset(mix('web/js/basic.js')) }}"></script>
     <!-- plugin_path -->
     <script>var plugin_path = 'js/';</script>
     
     <!-- REVOLUTION JS FILES -->
-    <script src="{{asset('web/js/revo.js')}}"></script>
+    <script src="{{ asset(mix('web/js/revo.js')) }}"></script>
 
     <!-- custom -->
-    <script src="{{asset('web/js/custom.js')}}"></script>
+    <script src="{{ asset(mix('web/js/custom.js')) }}"></script>
 </body>
 </html>
