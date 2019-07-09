@@ -21,13 +21,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset(mix('web/css/typography.css')) }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset(mix('web/css/shortcodes.css')) }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset(mix('web/css/style.css')) }}" />
-  
 </head>
-
 <body>
 
 <div class="wrapper">
- 
     <div id="pre-loader">
         <img src="images/pre-loader/loader-01.svg" alt="">
     </div>
@@ -36,19 +33,15 @@
     @include('f.partials.rev_slider')
 
     @include('f.partials.footer')
-
 </div>
-
-    <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
+<div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
 
     <script src="{{ asset(mix('web/js/basic.js')) }}"></script>
-    <!-- plugin_path -->
+    <!-- Plugin_path -->
     <script>var plugin_path = 'js/';</script>
-    
-    <!-- REVOLUTION JS FILES -->
+    <!-- Revolution JS files -->
     <script src="{{ asset(mix('web/js/revo.js')) }}"></script>
-
-    <!-- custom -->
+    <!-- Custom -->
     <script src="{{ asset(mix('web/js/custom.js')) }}"></script>
 </body>
 </html>
