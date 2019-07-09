@@ -10,7 +10,7 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-mix.sass('resources/sass/app.scss', 'public/css');
+// mix.sass('resources/sass/app.scss', 'public/css');
 
 
 /**************************************
@@ -32,6 +32,8 @@ mix
       'resources/front/css/plugins/slick-theme.css',
       'resources/front/css/plugins/themify-icons.css',
       'resources/front/css/plugins/fullcalendar.css',
+      'resources/front/css/skins/skin-blue-gem.css',
+
 
    ], 'public/web/css/basic.css', { outputStyle: 'compressed' })
 
