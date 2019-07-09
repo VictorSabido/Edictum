@@ -13,19 +13,9 @@ const mix = require('laravel-mix');
 mix.sass('resources/sass/app.scss', 'public/css');
 
 
-
-
-
-// CSS WEB FRONT -> PLUGINS - CSS
-// mix.styles([
-//    // Vendor CSS
-//    'resources/ezy_theme/vendor/bootstrap/css/bootstrap.min.css',
-
-// ], 'public/assets/web/css/app.css', { outputStyle: 'compressed' });
-
-/*************
-*     FRONT
-/************/
+/**************************************
+*                FRONT
+/**************************************/
 mix
    // CSS WEB FRONT -> PLUGINS - CSS
    .styles([
